@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'leafgarland/typescript-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
@@ -57,14 +56,16 @@ let NERDTreeShowHidden=1
 let g:NERDTreeWinPos = "right"
 "IDK"
 let g:NERDTreeChDirMode = 1
+"Put your path to NODE (not NPM) here!
+let g:coc_node_path = '/nix/store/52xbdvmcncf1hq4z6qdz321aimckjbgv-nodejs-14.9.0/bin/node'
 
 "New Tab"
 map <C-t> :tabe <CR>
 "NerdTree Toggle"
-map <C-e> :CocCommand explorer<CR>
+map <C-e> :NERDTreeToggle<CR>
 "Vertial split"
 map <C-s> :vsplit<CR>
 "Switch between windows"
 nnoremap <tab> <C-W>w
 
-colorscheme macvim
+colorscheme molokai

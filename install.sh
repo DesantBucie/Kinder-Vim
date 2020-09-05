@@ -10,3 +10,7 @@ fi
 
 cp .vimrc ~/
 cp -r .vim ~/
+
+vim +PlugInstall +q +q
+
+vim "+CocInstall coc-css"
