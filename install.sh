@@ -20,9 +20,7 @@ fi
 
 cp .vimrc ~/
 
-vim +PlugInstall +q +q
+vim -c "PlugInstall|q|q"
 #CSS Typescript server, json, html
-vim "+CocInstall coc-css coc-tsserver coc-json coc-html" +q +q
-#Bash and markdown
-#vim "+CocInstall coc-sh coc-markdownlint" +q +q
+vim -c "CocInstall coc-css coc-tsserver coc-json coc-html |q|q"
 
