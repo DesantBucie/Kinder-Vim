@@ -93,6 +93,7 @@ Now you can add any coc package just by command `:CocInstall pakage-name (i.e co
 If you do not like this, and want to remove it, simply delete ~/.vimrc,
 and ~.vim from your home directory.
 You will also need to remove ~/.config/coc.
+
 ![Uninstall.gif](./.github/uninstall.gif)
 
 ## TODO
