@@ -68,4 +68,10 @@ map <C-s> :vsplit<CR>
 "Switch between windows"
 nnoremap <tab> <C-W>w
 
+amenu TouchBar.NerdTree :NERDTreeToggle<CR>
+
+amenu TouchBar.Search /
+
+amenu TouchBar.Terminal :term<CR>
+
 colorscheme molokai

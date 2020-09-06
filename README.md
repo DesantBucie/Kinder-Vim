@@ -39,6 +39,8 @@ Colorsheme is molocai ported to vim by tomasr
 * nodejs > 10.12
 * macvim 8.1 or newer(no support for linux or windows yet)
 
+### Nix-shell,nvm or similar
+
 If you use nixshell or nvm you will need to specify node's path in
 coc-settings.json in this package
 
@@ -61,6 +63,8 @@ If you use normaly installed nodejs package !DELETE! coc-settings from the packa
 ## Advices
 
 Do not use esc, especially on touchbar macbooks, map esc to caps lock.
+System preferences => keyboard => modifier keys (bottom right)
+![Map caps lock to esc](./.github/esc.vim)
 
 ## Instalation
 
@@ -79,10 +83,14 @@ errors, report in issues.
 
 ## Post-Instalation
 
-Now you can add any coc package just by command :CocInstall pakage-name (i.e coc-html).
+Now you can add any coc package just by command `:CocInstall pakage-name (i.e coc-html)`.
 
 ## Uninstall
 
 If you do not like this, and want to remove it, simply delete ~/.vimrc,
 and ~.vim from your home directory.
 You will also need to remove ~/.config/coc.
+
+## TODO
+
+Better touchbar integration
