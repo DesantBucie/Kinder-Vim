@@ -81,15 +81,19 @@ You can ALWAYS install them from vim, not the script.
 Run install.sh, and everything should install by itself. If you encounter any
 errors, report in issues.
 
+![install.gif]("./.github/install.gif")
+
 ## Post-Instalation
 
 Now you can add any coc package just by command `:CocInstall pakage-name (i.e coc-html)`.
+![Install gif]("./.github/cocinstall.gif")
 
 ## Uninstall
 
 If you do not like this, and want to remove it, simply delete ~/.vimrc,
 and ~.vim from your home directory.
 You will also need to remove ~/.config/coc.
+![Uninstall.gif]("./.github/uninstall.gif")
 
 ## TODO
 
