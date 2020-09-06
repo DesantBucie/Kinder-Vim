@@ -64,7 +64,7 @@ If you use normaly installed nodejs package !DELETE! coc-settings from the packa
 
 Do not use esc, especially on touchbar macbooks, map esc to caps lock.
 System preferences => keyboard => modifier keys (bottom right)
-![Map caps lock to esc](./.github/esc.vim)
+![Map caps lock to esc](./.github/esc.gif)
 
 ## Instalation
 
