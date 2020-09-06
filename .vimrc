@@ -1,9 +1,3 @@
-call plug#begin('~/.vim/plugged')
-Plug 'itchyny/lightline.vim'
-Plug 'preservim/nerdtree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-call plug#end()
-
 "Basic sets"
 "
 "Sets number you see on the left"
@@ -58,6 +52,12 @@ let g:NERDTreeWinPos = "right"
 let g:NERDTreeChDirMode = 1
 "Put your path to NODE (not NPM) here!
 let g:coc_node_path = '/nix/store/52xbdvmcncf1hq4z6qdz321aimckjbgv-nodejs-14.9.0/bin/node'
+
+call plug#begin('~/.vim/plugged')
+    Plug 'itchyny/lightline.vim'
+    Plug 'preservim/nerdtree'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()
 
 "New Tab"
 map <C-t> :tabe <CR>

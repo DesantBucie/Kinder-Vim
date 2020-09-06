@@ -40,7 +40,7 @@ Colorsheme is molocai ported to vim by tomasr
 If you use nixshell or nvm you will need to specify node's path in
 coc-settings.json in this package
 
-```json
+```javascript
     {
     "npm.binPath": "full/path/to/npm"
     //(for example /nix/store/52xbdvmcncf1hq4z6qdz321aimckjbgv-nodejs-14.9.0/bin.npm)
@@ -49,10 +49,12 @@ coc-settings.json in this package
 
 and enter your path to node in this .vimrc(line 60):
 
-```vimscript
+```vim
 "/full/path/to/node"
 let g:coc_node_path = '/nix/store/52xbdvmcncf1hq4z6qdz321aimckjbgv-nodejs-14.9.0/bin/node'
 ```
+
+If you use normaly installed nodejs package !DELETE! coc-settings from the package
 
 ## Instalation
 
@@ -61,4 +63,4 @@ let g:coc_node_path = '/nix/store/52xbdvmcncf1hq4z6qdz321aimckjbgv-nodejs-14.9.0
 You may need to analyse what Coc packages do you need in package.json, as i did
 not put all of them to
 [install](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#install-extensions)
-At the bottom of the page you will find all packges,
+At the bottom of the page you will find all packges
