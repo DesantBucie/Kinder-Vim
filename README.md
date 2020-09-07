@@ -88,6 +88,13 @@ errors, report in issues.
 Now you can add any coc package just by command `:CocInstall pakage-name (i.e coc-html)`.
 ![CocInstall gif](./.github/cocinstall.gif)
 
+## Keybindings 
+
+Ctrl-e - nerdtree
+Ctrl-s - split
+Tab - next window
+Ctrl-t - new tab
+
 ## Uninstall
 
 If you do not like this, and want to remove it, simply delete ~/.vimrc,
