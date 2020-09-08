@@ -68,6 +68,8 @@ map <C-s> :vsplit<CR>
 "Switch between windows"
 nnoremap <tab> <C-W>w
 
+amenu TouchBar.-flexspace2- <Nop>
+
 amenu TouchBar.NerdTree :NERDTreeToggle<CR>
 
 amenu TouchBar.Search /

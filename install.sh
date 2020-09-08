@@ -22,5 +22,5 @@ cp .vimrc ~/
 
 vim -c "PlugInstall|q|q"
 #CSS Typescript server, json, html
-vim -c "CocInstall coc-css coc-tsserver coc-json coc-html |q|q"
+vim -c "CocInstall coc-css coc-cssmodules coc-stylelintplus coc-tsserver coc-json coc-html coc-discord coc-emmet coc-todolist coc-template |q|q"
 

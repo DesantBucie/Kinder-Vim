@@ -47,7 +47,7 @@ coc-settings.json in this package
 ```javascript
     {
     "npm.binPath": "full/path/to/npm"
-    //(for example /nix/store/52xbdvmcncf1hq4z6qdz321aimckjbgv-nodejs-14.9.0/bin.npm)
+    //(for example /nix/store/52xbdvmcncf1hq4z6qdz321aimckjbgv-nodejs-14.9.0/bin/npm)
     }
 ```
 
