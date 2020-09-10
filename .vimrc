@@ -1,5 +1,5 @@
 "Basic sets"
-"
+"let &runtimepath.=',$HOME/.vim'"
 "Sets number you see on the left"
 set number
 "Sets syntax on"
