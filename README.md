@@ -88,7 +88,7 @@ errors, report in issues.
 Now you can add any coc package just by command `:CocInstall pakage-name (i.e coc-html)`.
 ![CocInstall gif](./.github/cocinstall.gif)
 
-## Keybindings 
+## Keybindings
 
 Ctrl-e - nerdtree
 Ctrl-s - split

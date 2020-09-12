@@ -8,12 +8,12 @@ if (Test-Path $vimrc -PathType leaf) {
 if (Test-Path $vim -PathType leaf) {
     Rename-Item -Path $vim -NewName "_vim_backup"
 }
-Rename-Item -Path ".vimrc" -NewName "_vimrc"
+Copy-Item .vimrc _vimrc
 
 Copy-Item .vim ~\ -Recurse
 
 if (Test-Path "coc-settings.json" -PathType leaf) {
-    Copy-Item coc-settings.json ~\_vim\
+    Copy-Item coc-settings.json ~\.vim\
 }
 else {
     Get-Content _vimrc | 
