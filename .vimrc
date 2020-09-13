@@ -53,10 +53,17 @@ let g:NERDTreeChDirMode = 1
 "Put your path to NODE (not NPM) here!
 let g:coc_node_path = '/nix/store/52xbdvmcncf1hq4z6qdz321aimckjbgv-nodejs-14.9.0/bin/node'
 
+let g:rainbow_active = 1
+let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
+let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
+
 call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'
     Plug 'preservim/nerdtree'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'frazrepo/vim-rainbow'
+    Plug 'preservim/nerdcommenter'
 call plug#end()
 
 "New Tab"
