@@ -51,11 +51,13 @@ let g:NERDTreeWinPos = "right"
 "IDK"
 let g:NERDTreeChDirMode = 1
 "Put your path to NODE (not NPM) here!
-let g:coc_node_path = '/nix/store/52xbdvmcncf1hq4z6qdz321aimckjbgv-nodejs-14.9.0/bin/node'
+let g:coc_node_path = '/nix/store/*-nodejs-14.9.0/bin/node'
 
 let g:rainbow_active = 1
 let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
 let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
+let g:tagbar_ctags_bin = '/nix/store/b47zlsrnlgrq3zr44kzpfrdx03cnqh3l-ctags-816/bin/ctags'
+let mapleader = ','
 
 call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'
@@ -64,23 +66,27 @@ call plug#begin('~/.vim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'frazrepo/vim-rainbow'
     Plug 'preservim/nerdcommenter'
+    Plug 'preservim/tagbar'
 call plug#end()
 
 "New Tab"
-map <C-t> :tabe <CR>
+map <leader>t :tabe <CR>
 "NerdTree Toggle"
-map <C-e> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 "Vertial split"
-map <C-s> :vsplit<CR>
+map <leader>s :vsplit<CR>
 "Switch between windows"
 nnoremap <tab> <C-W>w
 
-amenu TouchBar.-flexspace2- <Nop>
+an TouchBar.-flexspace2- <Nop>
 
-amenu TouchBar.NerdTree :NERDTreeToggle<CR>
+amenu icon=NSTouchBarTextStrikethroughTemplate TouchBar.Comment <leader>c<space>
 
-amenu TouchBar.Search /
+an icon=NSTouchBarTextBoxTemplate TouchBar.Terminal :term<CR>
 
-amenu TouchBar.Terminal :term<CR>
+an icon=NSTouchBarSearchTemplate TouchBar.Search /
+
+an icon=NSTouchBarFolderTemplate TouchBar.NERD :NERDTreeToggle <CR>
+
 
 colorscheme molokai

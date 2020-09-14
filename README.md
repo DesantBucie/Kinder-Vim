@@ -12,7 +12,7 @@ that something can be improved, just let me know.
 ## What's the point
 
 When i was introduced to VI(M),i quite did not like it. It was hard to edit
-anything for me, keyboard arrows did not worked, when I'm so used to them.
+anything for me.
 
 Time passed, and i started to like VIM, but to have autocomplete you have to use
 pyhton plugins which to be honest i do not like at all.
@@ -36,29 +36,9 @@ Colorsheme is molocai ported to vim by tomasr
 
 ## Prerequisites
 
-* nodejs > 10.12
-* macvim 8.1 or newer(no support for linux or windows yet)
-
-### Nix-shell,nvm or similar
-
-If you use nixshell or nvm you will need to specify node's path in
-coc-settings.json in this package
-
-```javascript
-    {
-    "npm.binPath": "full/path/to/npm"
-    //(for example /nix/store/52xbdvmcncf1hq4z6qdz321aimckjbgv-nodejs-14.9.0/bin/npm)
-    }
-```
-
-and enter your path to node in this .vimrc(line 60):
-
-```vim
-"/full/path/to/node"
-let g:coc_node_path = '/nix/store/52xbdvmcncf1hq4z6qdz321aimckjbgv-nodejs-14.9.0/bin/node'
-```
-
-If you use normaly installed nodejs package !DELETE! coc-settings from the package
+* nodejs10.12 >
+* macvim 8.1 > (vim misses touchbar integration but works)
+* ctags (optional)
 
 ## Advices
 
@@ -68,32 +48,7 @@ System preferences => keyboard => modifier keys (bottom right)
 
 ## Instalation
 
-### MAC
-
-You may need to analyse what Coc packages do you need in package.json, as i did
-not put all of them to
-[install](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#install-extensions)
-At the bottom of the page you will find all packges
-
-Add them after space like i did i install.sh, or leave them as it is.
-You can ALWAYS install them from vim, not the script.
-
-Run install.sh, and everything should install by itself. If you encounter any
-errors, report in issues.
-
-![install.gif](./.github/install.gif)
-
-## Post-Instalation
-
-Now you can add any coc package just by command `:CocInstall pakage-name (i.e coc-html)`.
-![CocInstall gif](./.github/cocinstall.gif)
-
-## Keybindings
-
-Ctrl-e - nerdtree
-Ctrl-s - split
-Tab - next window
-Ctrl-t - new tab
+[Go to wiki](https://github.com/DesantBucie/Kinder-Vim/wiki)
 
 ## Uninstall
 
@@ -103,6 +58,3 @@ You will also need to remove ~/.config/coc.
 
 ![Uninstall.gif](./.github/uninstall.gif)
 
-## TODO
-
-Better touchbar integration

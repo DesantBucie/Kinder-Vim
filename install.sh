@@ -3,6 +3,9 @@
 VIMRC=~/.vimrc
 VIM=~/.vim
 COCSETTINGS=coc-settings.json
+NIX=/nix/store/*node*
+NVM=~/.nvm
+
 
 if [ -d "$VIM" ]; then
     mv ~/.vim ~/.vim_backup
@@ -17,7 +20,7 @@ fi
 cp -r .vim ~/
 echo "Coping .vim to home directory"
 
-
+    
 if [  -f "$COCSETTINGS" ]; then
     cp coc-settings.json ~/.vim/
     echo "Cocsetting found, moving to ~/.vim"
