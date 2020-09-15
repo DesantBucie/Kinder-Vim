@@ -19,27 +19,6 @@ pyhton plugins which to be honest i do not like at all.
 
 But this config/distro is different.
 
-## What's inside
-
-Vim-Plug for packages managment
-[vim-plug](https://github.com/junegunn/vim-plug)
-
-Autocompletion system is Coc, node based, very fast and easy to use. In fact
-it's very similar to VSCode. [More here:](https://github.com/neoclide/coc.nvim)
-
-It also has NERDTree (as Netrw was too unreliable, and Coc explorer is still in
-heavy development)
-[NERDTree](https://github.com/preservim/nerdtree)
-
-Colorsheme is molocai ported to vim by tomasr
-[Molocai](https://github.com/tomasr/molokai)
-
-## Prerequisites
-
-* nodejs10.12 >
-* macvim 8.1 > (vim misses touchbar integration but works)
-* ctags (optional)
-
 ## Advices
 
 Do not use esc, especially on touchbar macbooks, map esc to caps lock.
