@@ -12,9 +12,9 @@ set shiftround
 set smarttab
 set smartcase
 set ignorecase
-"Encoding utf-8"
+"encoding utf-8"
 set encoding=utf-8
-"Wraping lines"
+"wraping lines"
 set wrap
 set linebreak
 set display+=lastline
@@ -56,8 +56,8 @@ let g:coc_node_path = '/nix/store/*-nodejs-14.9.0/bin/node'
 let g:rainbow_active = 1
 let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
 let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
-let g:tagbar_ctags_bin = '/nix/store/b47zlsrnlgrq3zr44kzpfrdx03cnqh3l-ctags-816/bin/ctags'
-let mapleader = ','
+let g:tagbar_ctags_bin = '/nix/store/*-ctags-816/bin/ctags'
+"let mapleader = ','
 
 call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'
@@ -72,7 +72,7 @@ call plug#end()
 "New Tab"
 map <leader>t :tabe <CR>
 "NerdTree Toggle"
-map <leader>n :NERDTreeToggle<CR>
+map <leader>n :NERDTreeRefreshRoot <bar> :NERDTreeToggle<CR>
 "Vertial split"
 map <leader>s :vsplit<CR>
 "Switch between windows"
@@ -80,13 +80,22 @@ nnoremap <tab> <C-W>w
 
 an TouchBar.-flexspace2- <Nop>
 
-amenu icon=NSTouchBarTextStrikethroughTemplate TouchBar.Comment <leader>c<space>
+nmenu icon=NSTouchBarAddTemplate TouchBar.Add :vnew<CR>
 
-an icon=NSTouchBarTextBoxTemplate TouchBar.Terminal :term<CR>
+vmenu icon=NSTouchBarFolderCopyToTemplate TouchBar.Copy y
 
-an icon=NSTouchBarSearchTemplate TouchBar.Search /
+nmenu icon=NSTouchBarTextStrikethroughTemplate TouchBar.Comment <leader>c<space>
 
-an icon=NSTouchBarFolderTemplate TouchBar.NERD :NERDTreeToggle <CR>
+vmenu icon=NSTouchBarTextStrikethroughTemplate TouchBar.Comment <leader>ci
+
+imenu icon=NSTouchBarTextStrikethroughTemplate TouchBar.Comment <leader>c<space>
+
+nmenu icon=NSTouchBarTextBoxTemplate TouchBar.Terminal :vert term<CR>
+
+nmenu icon=NSTouchBarTagIconTemplate TouchBar.Tagbar :TagbarToggle<CR>
+
+nmenu icon=NSTouchBarSidebarTemplate TouchBar.NERD :NERDTreeRefreshRoot <bar> :NERDTreeToggle<CR>
+
 
 
 colorscheme molokai
