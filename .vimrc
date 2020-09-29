@@ -64,12 +64,11 @@ plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'jiangmiao/auto-pairs'
-    Plug 'frazrepo/vim-rainbow'
     Plug 'preservim/nerdcommenter'
     Plug 'preservim/tagbar'
     Plug 'chrisbra/Colorizer'
 plug#end()
-def Open() 
+def Open()
     silent exec "!open -a Safari -n"
 enddef
 command Open call Open()
