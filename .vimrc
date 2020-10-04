@@ -1,20 +1,20 @@
-vim9script
-#let &runtimepath.=',$HOME/.vim'
-#Sets number you see on the left
+"#let &runtimepath.=',$HOME/.vim'
+
+"#Sets number you see on the left
 set number
-#Sets syntax on
+"#Sets syntax on
 syntax on
-#Allows you to use mouse
+"#Allows you to use mouse
 set mouse=a
-#Built in Hightlight search
+"#Built in Hightlight search
 set hlsearch
 set shiftround
 set smarttab
 set smartcase
 set ignorecase
-#encoding utf-8
+"#encoding utf-8
 set encoding=utf-8
-#wraping lines
+"#wraping lines
 set wrap
 set linebreak
 set display+=lastline
@@ -24,13 +24,13 @@ set laststatus=2
 set ruler
 set wildmenu
 set cursorline
-#Disables error bells, without it, it's very difficult to conetrate
+"#Disables error bells, without it, it's very difficult to conetrate
 set noerrorbells
 set title
 set background=dark
 set nocompatible
 set noswapfile
-#Incremental search
+"#Incremental search
 set incsearch
 set showcmd
 set viminfo='0,:0,<0,@0,f0
@@ -44,22 +44,22 @@ set shiftwidth =4
 set expandtab
 set backspace =indent,eol,start
 
-#Allows you to see .files
-g:NERDTreeShowHidden = 1  
-#Position of the nerdTree
-g:NERDTreeWinPos = "right"
-#IDK
-g:NERDTreeChDirMode = 1
-#Put your path to NODE (not NPM) here!
-g:coc_node_path = '/nix/store/*-nodejs-*/bin/node'
+"#Allows you to see .files
+let g:NERDTreeShowHidden = 1  
+"#Position of the nerdTree
+let g:NERDTreeWinPos = "right"
+"#IDK
+let g:NERDTreeChDirMode = 1
+"#Put your path to NODE (not NPM) here!
+let g:coc_node_path = '/nix/store/*-nodejs-*/bin/node'
 
-g:rainbow_active = 1
-g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick'] 
-g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
-g:tagbar_ctags_bin = '/nix/store/*-ctags-816/bin/ctags'
-#let mapleader = ','
+let g:rainbow_active = 1
+let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick'] 
+let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
+let g:tagbar_ctags_bin = '/nix/store/*-ctags-816/bin/ctags'
+"#let mapleader = ','
 
-plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'
     Plug 'preservim/nerdtree'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -67,20 +67,13 @@ plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdcommenter'
     Plug 'preservim/tagbar'
     Plug 'chrisbra/Colorizer'
-plug#end()
-def Open()
+call plug#end()
+
+function Open()
     silent exec "!open -a Safari -n"
-enddef
-command Open call Open()
-"def TabWidth() 
-    "if tabswitch == false
-        ":set tabstop = 2 <bar> :set shiftwidth=2 <CR>
-        "tabswitch = true
-    "else
-        ":set tabstop = 4 <bar> :set shiftwidth=4 <CR>
-    "endif
-"enddef
-defcompile
+endfunction
+
+command BOpen call Open()
 "New Tab"
 map <leader>t :tabe <CR>
 "NerdTree Toggle"
@@ -96,7 +89,7 @@ nmenu TouchBar.File.New :vnew<CR>
 nmenu TouchBar.File.Save :w<CR>
 nmenu TouchBar.File.Tab :tabe<CR>
 tmenu TouchBar.File.Tab New Tab
-nmenu icon=~/.vim/icons/openinbrowser.png TouchBar.File.Open :Open <CR><CR>
+nmenu icon=~/.vim/icons/openinbrowser.png TouchBar.File.Open :BOpen <CR><CR>
 tmenu TouchBar.File.Open Open in Browser
 
 nmenu icon=NSTouchBarDownloadTemplate TouchBar.Settings.update :PlugUpdate <CR>

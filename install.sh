@@ -3,7 +3,7 @@
 VIMRC=~/.vimrc
 VIM=~/.vim
 COCSETTINGS=coc-settings.json
-NIX=/nix/store/*node*
+NIX=/nix/store/
 NVM=~/.nvm
 
 
@@ -21,9 +21,11 @@ cp -r .vim ~/
 echo "Coping .vim to home directory"
 
     
-if [  -f "$COCSETTINGS" ]; then
+if [  -d "$NIX" ]; then
     cp coc-settings.json ~/.vim/
-    echo "Cocsetting found, moving to ~/.vim"
+    echo "NIX found, moving to ~/.vim"
+elif [ -d "$NVM" ]; then
+    echo "NVM found"
 else
     sed '54d' .vimrc
     echo "custom npm not found, removing line 54 from .vimrc"
