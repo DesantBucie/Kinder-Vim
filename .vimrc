@@ -50,14 +50,12 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinPos = "right"
 "#IDK
 let g:NERDTreeChDirMode = 1
-"#Put your path to NODE (not NPM) here!
-let g:coc_node_path = '/nix/store/*-nodejs-*/bin/node'
+"Leave lines 54-56 for script insertion
 
-let g:rainbow_active = 1
-let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick'] 
-let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
-let g:tagbar_ctags_bin = '/nix/store/*-ctags-816/bin/ctags'
-"#let mapleader = ','
+
+let g:tagbar_ctags_bin = "/nix/store/*-ctags-*/bin/ctags"
+let mapleader = ','
+
 
 call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'

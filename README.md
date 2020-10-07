@@ -1,4 +1,4 @@
-# Kinder-VIM
+# Testaverde
 
 More human vim
 
@@ -12,9 +12,6 @@ I'm a total noob in vim script so I use the simplest methods possible if you see
 that something can be improved, just let me know.
 
 ## What's the point
-
-When i was introduced to VI(M),i quite did not like it. It was hard to edit
-anything for me.
 
 Time passed, and i started to like VIM, but to have autocomplete you have to use
 pyhton plugins which to be honest i do not like at all.
