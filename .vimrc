@@ -50,10 +50,11 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinPos = "right"
 "#IDK
 let g:NERDTreeChDirMode = 1
-"Leave lines 54-56 for script insertion
+"Leave line 54-57 for script insertion
 
 
-let g:tagbar_ctags_bin = "/nix/store/*-ctags-*/bin/ctags"
+
+
 let mapleader = ','
 
 
