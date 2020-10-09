@@ -1,0 +1,58 @@
+"#let &runtimepath.=',$HOME/.vim'
+
+"#Sets number you see on the left
+set number
+"#Sets syntax on
+syntax on
+"#Allows you to use mouse
+set mouse=a
+"#Built in Hightlight search
+set hlsearch
+set shiftround
+set smarttab
+set smartcase
+set ignorecase
+"#encoding utf-8
+set encoding=utf-8
+"#wraping lines
+set wrap
+set linebreak
+set display+=lastline
+set scrolloff=1
+set sidescrolloff=5
+set laststatus=2
+set ruler
+set wildmenu
+set cursorline
+"#Disables error bells, without it, it's very difficult to conetrate
+set noerrorbells
+set title
+set background=dark
+set nocompatible
+set noswapfile
+"#Incremental search
+set incsearch
+set showcmd
+set viminfo='0,:0,<0,@0,f0
+set nobackup
+set nowb
+set autoread
+set showmatch
+set autoindent
+set tabstop =4
+set shiftwidth =4
+set expandtab
+set backspace =indent,eol,start
+
+"let mapleader = ','
+
+"New Tab"
+map <leader>t :tabe <CR>
+"NerdTree Toggle"
+map <leader>n :Lex
+"Vertial split"
+map <leader>s :vsplit<CR>
+"Switch between windows"
+nnoremap <tab> <C-W>w
+
+colorscheme molokai
