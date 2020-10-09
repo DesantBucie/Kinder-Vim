@@ -19,7 +19,9 @@ I'll probably need this, so maybe someone will find it easy to install and use( 
 ## Advices
 
 Do not use esc, especially on touchbar macbooks 2016-2019, map esc to caps lock.
+
 System preferences => keyboard => modifier keys (bottom right)
+
 ![Map caps lock to esc](./.github/esc.gif)
 
 ## Instalation
@@ -29,5 +31,6 @@ System preferences => keyboard => modifier keys (bottom right)
 ## Uninstall
 
 You can run script, or simply delete ~/.vim ~/.vimrc and ~/.config/coc
+
 ![Uninstall.gif](./.github/uninstall.gif)
 
