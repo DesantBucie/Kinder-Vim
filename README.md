@@ -5,7 +5,7 @@ More human vim
 ![Vim.gif](./.github/vim.gif)
 
 ![Vim.gif](./.github/touchbar.jpg)
-
+TODO: Unminify and minify code;
 ## Before we start
 
 I'm a total noob in vim script so I use the simplest methods possible if you see
