@@ -1,11 +1,12 @@
-# Testaverde
+# Verde
 
-More human vim
+Macvim and vim configuration to be easy to install and use.
 
 ![Vim.gif](./.github/vim.gif)
 
 ![Vim.gif](./.github/touchbar.jpg)
-TODO: Unminify and minify code;
+
+TODO: Unminify and minify code, mini config to use on servers.
 ## Before we start
 
 I'm a total noob in vim script so I use the simplest methods possible if you see
@@ -13,15 +14,14 @@ that something can be improved, just let me know.
 
 ## What's the point
 
-Time passed, and i started to like VIM, but to have autocomplete you have to use
-pyhton plugins which to be honest i do not like at all.
-
-But this config/distro is different.
+I'll probably need this, so maybe someone will find it easy to install and use( not on Windows yet:/ )
 
 ## Advices
 
-Do not use esc, especially on touchbar macbooks, map esc to caps lock.
+Do not use esc, especially on touchbar macbooks 2016-2019, map esc to caps lock.
+
 System preferences => keyboard => modifier keys (bottom right)
+
 ![Map caps lock to esc](./.github/esc.gif)
 
 ## Instalation
@@ -30,9 +30,7 @@ System preferences => keyboard => modifier keys (bottom right)
 
 ## Uninstall
 
-If you do not like this, and want to remove it, simply delete ~/.vimrc,
-and ~.vim from your home directory.
-You will also need to remove ~/.config/coc.
+You can run script, or simply delete ~/.vim ~/.vimrc and ~/.config/coc
 
 ![Uninstall.gif](./.github/uninstall.gif)
 
