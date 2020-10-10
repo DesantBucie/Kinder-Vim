@@ -55,8 +55,9 @@ let g:NERDTreeChDirMode = 1
 
 
 
-let mapleader = ','
+"let mapleader = ','
 
+let g:NERDIsOpen = 0
 
 call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'
@@ -72,11 +73,24 @@ function Open()
     silent exec "!open -a Safari -n"
 endfunction
 
+function Nerd()
+
+    if g:NERDIsOpen == 0
+        NERDTreeToggle | NERDTreeRefreshRoot
+        let g:NERDIsOpen = 1
+    else
+        NERDTreeToggle
+        let g:NERDIsOpen = 0
+    endif
+
+endfunction
+
+command Nerd call Nerd()
 command BOpen call Open()
 "New Tab"
 map <leader>t :tabe <CR>
 "NerdTree Toggle"
-map <leader>n :NERDTreeRefreshRoot <bar> :NERDTreeToggle<CR>
+map <leader>n :Nerd<CR>
 "Vertial split"
 map <leader>s :vsplit<CR>
 "Switch between windows"
@@ -89,7 +103,7 @@ nmenu TouchBar.File.Save :w<CR>
 nmenu TouchBar.File.Tab :tabe<CR>
 tmenu TouchBar.File.Tab New Tab
 nmenu icon=~/.vim/icons/openinbrowser.png TouchBar.File.Open :BOpen <CR><CR>
-tmenu TouchBar.File.Open Open in Browser
+tmenu TouchBar.File.Open Browser
 
 nmenu icon=NSTouchBarDownloadTemplate TouchBar.Settings.update :PlugUpdate <CR>
 tmenu TouchBar.Settings.update Update 
@@ -110,7 +124,7 @@ nmenu icon=~/.vim/icons/terminal.png TouchBar.Terminal :vert term<CR>
 "Tagbar and nerdTree"
 nmenu icon=NSTouchBarTagIconTemplate TouchBar.Tagbar :TagbarToggle<CR>
 
-nmenu icon=NSTouchBarSidebarTemplate TouchBar.NERD :NERDTreeRefreshRoot <bar> :NERDTreeToggle<CR>
+nmenu icon=NSTouchBarSidebarTemplate TouchBar.NERD :Nerd<CR>
 
 
 colorscheme molokai
