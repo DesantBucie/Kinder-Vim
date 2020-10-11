@@ -1,4 +1,3 @@
-#!/bin/bash
 
 VIMRC=~/.vimrc
 VIM=~/.vim
