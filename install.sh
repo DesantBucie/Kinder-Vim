@@ -4,8 +4,6 @@ VIM=~/.vim
 #Which is almost always installed, but won't work on windows' git-bash`
 NODE=`which node`
 NPM=`which npm`
-NODE_WIN=`where node`
-NPM_WIN=`where npm`
 PLATFORM=`uname`
 ARE_CTAGS_BSD=`which ctags`
 
@@ -81,7 +79,7 @@ if [ $NPM ] && [ $NODE ]; then
     else 
         Your platform is not supported.
     fi
-elif [ $NPM_WIN ] && [ $NODE_WIN ] && [ $PLATFORM == "MINGW"* ];then
+elif [ -x `where npm` ] && [ -x `where node` ] && [ $PLATFORM == "MINGW"* ];then
     WindowsInsert
 else
     echo "Node or/and Npm not found in your path"
