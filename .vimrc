@@ -54,7 +54,6 @@ let g:NERDTreeChDirMode = 1
 
 
 
-
 "let mapleader = ','
 
 let g:NERDIsOpen = 0
