@@ -1,10 +1,70 @@
-
+VIMRC_WIN=~/_vimrc
 VIMRC=~/.vimrc
 VIM=~/.vim
+#Which is almost always installed, but won't work on windows' git-bash`
 NODE=`which node`
 NPM=`which npm`
+NODE_WIN=`where node`
+NPM_WIN=`where npm`
 PLATFORM=`uname`
 ARE_CTAGS_BSD=`which ctags`
+
+BSDsInsert() {
+    #coc-settings
+    sed -i '' '2i\
+    "npm.binPath": "'"$NPM"'"' .vim/coc-settings.json
+    #NPM
+    sed -i '' '54i\
+    let g:coc_node_path = "'"$NODE"'"' .vimrc
+
+    if [ $PLATFORM == "Darwin" ] &&\
+    [ $ARE_CTAGS_BSD == "/usr/bin/ctags" ]; 
+    then
+        echo "BSD Ctags are not supported, you need to install universal ctags from Brew, macports or nix"
+    else
+        sed -i '' '56i\
+        let g:tagbar_ctags_bin = "'"$ARE_CTAGS_BSD"'"' .vimrc
+    fi
+    NixsInstall
+}
+LinuxInsert() {
+    #coc-settings
+    sed -i '4 i "npm.binPath": "'"$NPM"'"' .vim/coc-settings.json
+    #NPM
+    sed -i '54 i let g:coc_node_path = "'"$NODE"'"' .vimrc
+    NixsInstall
+}
+WindowsInsert() {
+    sed -i '1 i let &runtimepath.=",$HOME/.vim"' .vimrc
+    #coc-settings
+    sed -i '4 i "npm.binPath": "'"$NPM_WIN"'"' .vim/coc-settings.json
+    #NPM
+    sed -i '54 i let g:coc_node_path = "'"$NODE_WIN"'"' .vimrc
+    WindowsInstall
+}
+
+NixsInstall() {
+
+if [ -f "$VIMRC" ]; then
+    mv ~/.vimrc ~/.vimrc_backup
+    echo ".vimrc found, moving to .vimrc_backup"
+fi
+
+cp .vimrc ~/
+echo "Coping vimrc"
+}
+WindowsInstall() {
+
+if [ -f "$VIMRC_WIN" ]; then
+    mv ~/_vimrc ~/_vimrc_backup
+    echo ".vimrc found, moving to .vimrc_backup"
+fi
+
+cp .vimrc _vimrc
+cp _vimrc ~/
+rm _vimrc
+echo "Coping vimrc"
+}
 
 cp -r .vim .vim.bak
 cp  .vimrc .vimrc.bak
@@ -15,30 +75,14 @@ if [ $NPM ] && [ $NODE ]; then
     [ $PLATFORM == "Darwin" ] ||\
     [ $PLATFORM == "DragonFly" ]; 
     then
-
-        #coc-settings
-        sed -i '' '2i\
-        "npm.binPath": "'"$NPM"'"' .vim/coc-settings.json
-        #NPM
-        sed -i '' '54i\
-        let g:coc_node_path = "'"$NODE"'"' .vimrc
-
-        if [ $PLATFORM == "Darwin" ] &&\
-        [ $ARE_CTAGS_BSD == "/usr/bin/ctags" ]; 
-        then
-            echo "BSD Ctags are not supported, you need to install universal ctags from Brew, macports or nix"
-        else
-            sed -i '' '56i\
-            let g:tagbar_ctags_bin = "'"$ARE_CTAGS_BSD"'"' .vimrc
-        fi
-    elif [ $PLATFORM == Linux ]; then
-        #coc-settings
-        sed '4 i "npm.binPath": "'"$NPM"'"' .vim/coc-settings.json
-        #NPM
-        sed '54 i let g:coc_node_path = "'"$NODE"'"' .vimrc
+        BSDsInsert
+    elif [ $PLATFORM == "Linux" ];then
+        LinuxInsert
     else 
         Your platform is not supported.
     fi
+elif [ $NPM_WIN ] && [ $NODE_WIN ] && [ $PLATFORM == "MINGW"* ];then
+    WindowsInsert
 else
     echo "Node or/and Npm not found in your path"
     rm -rf .vim .vimrc
@@ -52,18 +96,11 @@ if [ -d "$VIM" ]; then
     echo ".vim found, moving to .vim_backup"
 fi
 
-if [ -f "$VIMRC" ]; then
-    mv ~/.vimrc ~/.vimrc_backup
-    echo ".vimrc found, moving to .vimrc_backup"
-fi
-
 cp -r .vim ~/
 echo "Coping .vim to home directory"
 
-cp .vimrc ~/
-echo "Coping vimrc"
-
 vim -c "PlugInstall|q|q"
+vim -c "q"
 #CSS Typescript server, json, html
 vim -c "CocInstall coc-emmet coc-css coc-cssmodules coc-stylelintplus coc-tsserver coc-json coc-html coc-powershell coc-discord coc-emmet coc-todolist coc-template |q|q"
 
