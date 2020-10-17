@@ -24,7 +24,7 @@ set laststatus=2
 set ruler
 set wildmenu
 set cursorline
-"#Disables error bells, without it, it's very difficult to conetrate
+"#Disables error bells, without it, it's very difficult to concentrate
 set noerrorbells
 set title
 set background=dark
@@ -56,8 +56,6 @@ let g:NERDTreeChDirMode = 1
 
 "let mapleader = ','
 
-let g:NERDIsOpen = 0
-
 call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'
     Plug 'preservim/nerdtree'
@@ -68,24 +66,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'chrisbra/Colorizer'
 call plug#end()
 
-function Open()
-    silent exec "!open -a Safari -n"
-endfunction
-
-function Nerd()
-
-    if g:NERDIsOpen == 0
-        NERDTreeToggle | NERDTreeRefreshRoot
-        let g:NERDIsOpen = 1
-    else
-        NERDTreeToggle
-        let g:NERDIsOpen = 0
-    endif
-
-endfunction
-
-command Nerd call Nerd()
-command BOpen call Open()
+command Nerd call functions#Nerd()
+command BOpen call functions#Open()
+command UpdateVerde call functions#UpdateVerde()
+command TabSpaces call functions#TabSpaces()
+command Minify call functions#Minify()
 "New Tab"
 map <leader>t :tabe <CR>
 "NerdTree Toggle"
@@ -97,19 +82,17 @@ nnoremap <tab> <C-W>w
 
 an TouchBar.-flexspace2- <Nop>
 
-nmenu TouchBar.File.New :vnew<CR>
-nmenu TouchBar.File.Save :w<CR>
-nmenu TouchBar.File.Tab :tabe<CR>
-tmenu TouchBar.File.Tab New Tab
+nmenu TouchBar.File.Minify :Minify<CR>
+tmenu TouchBar.File.Minify Minify
+nmenu TouchBar.File.Unminify :Unminify
+tmenu TouchBar.File.Unminify Unminify
 nmenu icon=~/.vim/icons/openinbrowser.png TouchBar.File.Open :BOpen <CR><CR>
 tmenu TouchBar.File.Open Browser
 
-nmenu icon=NSTouchBarDownloadTemplate TouchBar.Settings.update :PlugUpdate <CR>
-tmenu TouchBar.Settings.update Update 
-nmenu TouchBar.Settings.tabwidth2 :set tabstop=2 <bar> :set shiftwidth=2 <CR> 
-tmenu TouchBar.Settings.tabwidth2 Tab width 2
-nmenu TouchBar.Settings.tabwidth4 :set tabstop=4 <bar> :set shiftwidth=4 <CR>
-tmenu TouchBar.Settings.tabwidth4 Tab width 4
+nmenu icon=NSTouchBarDownloadTemplate TouchBar.Settings.update :UpdateVerde <CR>
+tmenu TouchBar.Settings.update Update
+nmenu TouchBar.Settings.Tab :TabSpaces<CR>
+tmenu TouchBar.Settings.Tab Tab(2/4)
 
 "Copy"
 vmenu icon=~/.vim/icons/foldercopyto.png TouchBar.Copy y

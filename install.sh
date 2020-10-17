@@ -105,4 +105,4 @@ mv .vimrc.bak .vimrc
 mv .vim.bak .vim
 
 cd ~/.config/coc/extensions
-npm install coc-angular coc-bookmark coc-calc coc-clangd coc-cmake coc-cord coc-css coc-css coc-cssmodules coc-emmet coc-highlight coc-html coc-lists coc-markdownlint coc-omnisharp coc-perl coc-phpls coc-powershell coc-python coc-rls coc-sh coc-stylelintplus coc-snippets coc-sourcekit coc-spell-checker coc-sql coc-svg coc-template coc-todolist coc-tsserver coc-yank --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+npm install coc-angular coc-bookmark coc-calc coc-clangd coc-cmake coc-css coc-css coc-cssmodules coc-emmet coc-highlight coc-html coc-lists coc-markdownlint coc-omnisharp coc-perl coc-phpls coc-powershell coc-python coc-rls coc-sh coc-stylelintplus coc-snippets coc-sourcekit coc-sql coc-svg coc-template coc-todolist coc-tsserver coc-yank --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
