@@ -7,7 +7,7 @@ syntax on
 "#Allows you to use mouse
 set mouse=a
 "#Built in Hightlight search
-set hlsearch
+"set hlsearch
 set shiftround
 set smarttab
 set smartcase
@@ -54,6 +54,7 @@ let g:NERDTreeChDirMode = 1
 
 
 
+
 "let mapleader = ','
 
 call plug#begin('~/.vim/plugged')
@@ -84,7 +85,7 @@ an TouchBar.-flexspace2- <Nop>
 
 nmenu TouchBar.File.Minify :Minify<CR>
 tmenu TouchBar.File.Minify Minify
-nmenu TouchBar.File.Unminify :Unminify
+nmenu TouchBar.File.Unminify :Unminify<CR>
 tmenu TouchBar.File.Unminify Unminify
 nmenu icon=~/.vim/icons/openinbrowser.png TouchBar.File.Open :BOpen <CR><CR>
 tmenu TouchBar.File.Open Browser

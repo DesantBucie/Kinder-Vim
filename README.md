@@ -7,6 +7,7 @@ Macvim and vim configuration to be easy to install and use.
 ![Vim.gif](./.github/touchbar.jpg)
 
 TODO: Unminify and minify code, mini config to use on servers.
+
 ## Before we start
 
 I'm a total noob in vim script so I use the simplest methods possible if you see
@@ -14,7 +15,8 @@ that something can be improved, just let me know.
 
 ## What's the point
 
-I'll probably need this, so maybe someone will find it easy to install and use( not on Windows yet:/ )
+I'll probably need this, so maybe someone will find it easy to install and use
+(not on Windows yet:/ ).
 
 ## Advices
 

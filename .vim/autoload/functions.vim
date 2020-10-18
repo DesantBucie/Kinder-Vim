@@ -18,6 +18,7 @@ function! functions#Nerd()
 endfunction
 
 function! functions#TabSpaces()
+
     if g:TabSpaces == 4
         set tabstop = 2 | set shiftwidth = 2
         let g:TabSpaces = 2
@@ -37,16 +38,39 @@ endfunction
 
 function! functions#Minify()
     let filetype = expand('%:e')
-    if filetype == 'xml' | filetype == 'html'
+    if filetype == 'xml' || filetype == 'html'
         call XmlMinify()
     endif
 endfunction
 
 function! XmlMinify()
-  set filetype=xml
-  filetype indent on
-  normal! ggVGJ
-  execute "%s/>\s\+</></e"
-  execute "%s/> </></e"
+    set filetype=xml
+    filetype indent on
+    normal! ggVGJ
+    execute "%s/>\s\+</></e"
+    execute "%s/> </></e"
+    execute "%s/></>\r</e"
+    normal! gg=G
 endfunction
 
+function! functions#Unminify()
+    let filetype = expand('%:e')
+    if filetype == 'js'
+        call JsUnminify()
+    endif
+endfunction
+
+function! XmlUnminify()
+    s/<[^>]*>/\r&\r/g
+    g/^$/d 
+endfunction 
+
+"#Thank you tapanpandita https://coderwall.com/p/lxajqq/vim-function-to-unminify-javascript!
+function! JsUnminify()
+    %s/{\ze[^\r\n]/{\r/g
+    %s/){/) {/g
+    %s/};\?\ze[^\r\n]/\0\r/g
+    %s/;\ze[^\r\n]/;\r/g
+    %s/[^\s]\zs[=&|]\+\ze[^\s]/ \0 /g
+    normal ggVG=
+endfunction
