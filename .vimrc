@@ -57,6 +57,8 @@ let g:NERDTreeChDirMode = 1
 
 "let mapleader = ','
 
+let g:NERDTreeWinSize=40
+
 call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'
     Plug 'preservim/nerdtree'
@@ -70,8 +72,6 @@ call plug#end()
 command Nerd call functions#Nerd()
 command BOpen call functions#Open()
 command UpdateVerde call functions#UpdateVerde()
-command TabSpaces call functions#TabSpaces()
-command Minify call functions#Minify()
 "New Tab"
 map <leader>t :tabe <CR>
 "NerdTree Toggle"
@@ -83,17 +83,15 @@ nnoremap <tab> <C-W>w
 
 an TouchBar.-flexspace2- <Nop>
 
-nmenu TouchBar.File.Minify :Minify<CR>
-tmenu TouchBar.File.Minify Minify
-nmenu TouchBar.File.Unminify :Unminify<CR>
-tmenu TouchBar.File.Unminify Unminify
+nmenu TouchBar.File.Minify :call functions#MinifyOrUnminify()<CR>
+tmenu TouchBar.File.Minify Un/Minify
 nmenu icon=~/.vim/icons/openinbrowser.png TouchBar.File.Open :BOpen <CR><CR>
 tmenu TouchBar.File.Open Browser
 
 nmenu icon=NSTouchBarDownloadTemplate TouchBar.Settings.update :UpdateVerde <CR>
 tmenu TouchBar.Settings.update Update
-nmenu TouchBar.Settings.Tab :TabSpaces<CR>
-tmenu TouchBar.Settings.Tab Tab(2/4)
+nmenu TouchBar.Settings.Tab :call functions#TabSpaces()<CR>
+tmenu TouchBar.Settings.Tab Set Tab 2
 
 "Copy"
 vmenu icon=~/.vim/icons/foldercopyto.png TouchBar.Copy y

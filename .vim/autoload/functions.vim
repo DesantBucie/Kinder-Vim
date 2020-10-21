@@ -20,13 +20,13 @@ endfunction
 function! functions#TabSpaces()
 
     if g:TabSpaces == 4
-        set tabstop = 2 | set shiftwidth = 2
+        set tabstop=2 | set shiftwidth=2
         let g:TabSpaces = 2
-        
+        tmenu TouchBar.Settings.Tab Set Tab 4
     else
-        set tabstop = 4 | set shiftwidth = 4
-        let g:TabSpaces = 4
-        
+        set tabstop=4 | set shiftwidth=4
+        let g:TabSpaces = 4 
+        tmenu TouchBar.Settings.Tab Set Tab 2
     endif
 endfunction
 
@@ -36,10 +36,18 @@ function! functions#UpdateVerde()
     PlugClean
 endfunction
 
-function! functions#Minify()
+function! functions#MinifyOrUnminify()
+    let line = line('$')
+    if line == 1
+        call Unminify()
+    else
+        call Minify()
+endfunction
+
+function! Minify()
     let filetype = expand('%:e')
     if filetype == 'xml' || filetype == 'html'
-        call XmlMinify()
+       silent call XmlMinify()
     endif
 endfunction
 
@@ -53,7 +61,7 @@ function! XmlMinify()
     normal! gg=G
 endfunction
 
-function! functions#Unminify()
+function! Unminify()
     let filetype = expand('%:e')
     if filetype == 'js'
         call JsUnminify()
