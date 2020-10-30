@@ -39,10 +39,10 @@ set nowb
 set autoread
 set showmatch
 set autoindent
-set tabstop =4
-set shiftwidth =4
+set tabstop=4
+set shiftwidth=4
 set expandtab
-set backspace =indent,eol,start
+set backspace=indent,eol,start
 
 "#Allows you to see .files
 let g:NERDTreeShowHidden = 1  
@@ -57,7 +57,7 @@ let g:NERDTreeChDirMode = 1
 
 "let mapleader = ','
 
-let g:NERDTreeWinSize=40
+let g:NERDTreeWinSize = 40
 
 call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'

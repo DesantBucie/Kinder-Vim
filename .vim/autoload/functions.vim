@@ -2,7 +2,8 @@ let g:NERDIsOpen = 0
 let g:TabSpaces = 4
 
 function! functions#Open()
-    silent exec "!open -a Safari -n"
+    let l:file = expand('%:p')
+    silent exec '!open -a Safari ' l:file
 endfunction
 
 function! functions#Nerd()
@@ -37,48 +38,21 @@ function! functions#UpdateVerde()
 endfunction
 
 function! functions#MinifyOrUnminify()
-    let line = line('$')
-    if line == 1
+    let l:line = line('$')
+    if l:line == 1
         call Unminify()
     else
         call Minify()
+    endif
 endfunction
 
 function! Minify()
-    let filetype = expand('%:e')
-    if filetype == 'xml' || filetype == 'html'
-       silent call XmlMinify()
-    endif
-endfunction
-
-function! XmlMinify()
-    set filetype=xml
-    filetype indent on
-    normal! ggVGJ
-    execute "%s/>\s\+</></e"
-    execute "%s/> </></e"
-    execute "%s/></>\r</e"
-    normal! gg=G
-endfunction
-
-function! Unminify()
-    let filetype = expand('%:e')
-    if filetype == 'js'
-        call JsUnminify()
-    endif
-endfunction
-
-function! XmlUnminify()
-    s/<[^>]*>/\r&\r/g
-    g/^$/d 
-endfunction 
-
-"#Thank you tapanpandita https://coderwall.com/p/lxajqq/vim-function-to-unminify-javascript!
-function! JsUnminify()
-    %s/{\ze[^\r\n]/{\r/g
-    %s/){/) {/g
-    %s/};\?\ze[^\r\n]/\0\r/g
-    %s/;\ze[^\r\n]/;\r/g
-    %s/[^\s]\zs[=&|]\+\ze[^\s]/ \0 /g
-    normal ggVG=
+    "let l:file = expand('%:t')
+    "let l:name = expand('%:r')
+    "let l:path = expand('%:p:h')
+    let l:extension = expand('%:e')
+    if l:extension == 'html' || l:extension == 'htm'|| l:extension == 'css' || l:extension == 'js'
+        exec '!minify ' l:file ' > ' l:path '/' l:name '.min.' l:extension
+    else
+        echo "You can only minify html, css or js"
 endfunction
