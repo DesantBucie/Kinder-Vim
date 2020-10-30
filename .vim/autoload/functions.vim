@@ -3,7 +3,7 @@ let g:TabSpaces = 4
 
 function! functions#Open()
     let l:file = expand('%:p')
-    silent exec '!open -a Safari ' l:file
+    silent exec '!open -a Safari' l:file
 endfunction
 
 function! functions#Nerd()
@@ -40,19 +40,25 @@ endfunction
 function! functions#MinifyOrUnminify()
     let l:line = line('$')
     if l:line == 1
-        call Unminify()
+        call functions#Unminify()
     else
         call Minify()
     endif
 endfunction
 
 function! Minify()
-    "let l:file = expand('%:t')
-    "let l:name = expand('%:r')
-    "let l:path = expand('%:p:h')
+    let l:filename = expand('%:p:r')
+    let l:file = expand('%:p')
     let l:extension = expand('%:e')
+
     if l:extension == 'html' || l:extension == 'htm'|| l:extension == 'css' || l:extension == 'js'
-        exec '!minify ' l:file ' > ' l:path '/' l:name '.min.' l:extension
+        exec '!~/.vim/extensions/node_modules/minify/bin/minify.js' l:file ' > ' l:filename.'.min.'.l:extension  
     else
         echo "You can only minify html, css or js"
+    endif
+endfunction
+
+function! functions#Unminify()
+    let l:file = expand('%:p')
+    silent exec '!unminify' l:file
 endfunction
