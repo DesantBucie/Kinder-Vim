@@ -4,15 +4,8 @@ let g:TabSpaces = 4
 function! functions#Open()
 
     let l:file = expand('%:p')
-    let l:extension = expand('%:e')
 
-    if l:extension == 'html' || l:extension == 'htm' 
-    \ || l:extension == 'pdf' || l:extension == 'jpg'
-    \ || l:extension == 'png' || l:extension == 'svg'
-        silent exec '!open ' l:file
-    else
-        echo 'You can only open html files in browser'
-    endif
+    silent exec '!open ' '"'.l:file.'"'
 endfunction
 
 function! functions#Nerd()
