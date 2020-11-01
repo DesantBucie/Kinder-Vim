@@ -2,8 +2,17 @@ let g:NERDIsOpen = 0
 let g:TabSpaces = 4
 
 function! functions#Open()
+
     let l:file = expand('%:p')
-    silent exec '!open -a Safari' l:file
+    let l:extension = expand('%:e')
+
+    if l:extension == 'html' || l:extension == 'htm' 
+    \ || l:extension == 'pdf' || l:extension == 'jpg'
+    \ || l:extension == 'png' || l:extension == 'svg'
+        silent exec '!open ' l:file
+    else
+        echo 'You can only open html files in browser'
+    endif
 endfunction
 
 function! functions#Nerd()
@@ -40,9 +49,9 @@ endfunction
 function! functions#MinifyOrUnminify()
     let l:line = line('$')
     if l:line == 1
-        call functions#Unminify()
+        silent call Unminify()
     else
-        call Minify()
+        silent call Minify()
     endif
 endfunction
 
@@ -51,14 +60,28 @@ function! Minify()
     let l:file = expand('%:p')
     let l:extension = expand('%:e')
 
-    if l:extension == 'html' || l:extension == 'htm'|| l:extension == 'css' || l:extension == 'js'
-        exec '!~/.vim/extensions/node_modules/minify/bin/minify.js' l:file ' > ' l:filename.'.min.'.l:extension  
+    if  l:extension == 'css' || l:extension == 'js'
+        silent exec '!~/.vim/extensions/node_modules/minify/bin/minify.js' l:file ' > ' l:filename.'.min.'.l:extension  
+    elseif l:extension == 'html' || l:extension == 'htm'
+        silent exec '!~/.vim/extensions/node_modules/minify/bin/minify.js' l:file ' > ' l:filename.'.min.'.l:extension
+        silent exec '!mv ' l:filename.'.min.',l:extension ' ' l:file
     else
         echo "You can only minify html, css or js"
     endif
 endfunction
 
-function! functions#Unminify()
+function! Unminify()
+    let l:filename = expand('%:p:r')
+    let l:extension = expand('%:e')
     let l:file = expand('%:p')
-    silent exec '!unminify' l:file
+    if l:extension == 'js'
+        silent exec '!~/.vim/extensions/node_modules/js-beautify/js/bin/js-beautify.js' l:file ' > ' l:filename.'.umin.'.l:extension
+    elseif l:extension == 'html' || l:extension =='htm'
+        silent exec '!~/.vim/extensions/node_modules/js-beautify/js/bin/html-beautify.js' l:file ' > ' l:filename.'.umin.'.l:extension
+    elseif l:extension == 'css'
+        silent exec '!~/.vim/extensions/node_modules/js-beautify/js/bin/css-beautify.js' l:file ' > ' l:filename.'.umin.'.l:extension
+    else
+        echo "Only html, js or css can be unminified"
+    endif
+    silent exec '!mv' l:filename.'.umin.'.l:extension ' ' l:file
 endfunction
