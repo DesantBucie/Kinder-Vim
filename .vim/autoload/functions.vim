@@ -4,7 +4,6 @@ let g:TabSpaces = 4
 function! functions#Open()
 
     let l:file = expand('%:p')
-
     silent exec '!open ' '"'.l:file.'"'
 endfunction
 
@@ -42,9 +41,9 @@ endfunction
 function! functions#MinifyOrUnminify()
     let l:line = line('$')
     if l:line == 1
-        silent call Unminify()
+        call Unminify()
     else
-        silent call Minify()
+        call Minify()
     endif
 endfunction
 

@@ -97,8 +97,8 @@ tmenu TouchBar.Settings.Tab Set Tab 2
 vmenu icon=~/.vim/icons/foldercopyto.png TouchBar.Copy y
 
 "Comment"
-nmenu icon=NSTouchBarTextListTemplate TouchBar.Comment <leader>c<space>
-vmenu icon=NSTouchBarTextListTemplate TouchBar.Comment <leader>ci
+nmenu TouchBar.// <leader>c<space>
+vmenu TouchBar.// <leader>ci
 "Terminal"
 nmenu icon=~/.vim/icons/terminal.png TouchBar.Terminal :vert term<CR>
 
