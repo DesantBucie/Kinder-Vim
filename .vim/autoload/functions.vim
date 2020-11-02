@@ -1,79 +1,81 @@
-let g:NERDIsOpen = 0
-let g:TabSpaces = 4
+vim9script
 
-function! functions#Open()
+g:NERDIsOpen = 0
+g:TabSpaces = 4
 
-    let l:file = expand('%:p')
-    silent exec '!open ' '"'.l:file.'"'
-endfunction
+def functions#Open()
+    const filename = expand('%:p')
+     exec '!open' '"' .. filename .. '"'
+enddef
 
-function! functions#Nerd()
+def functions#Nerd()
 
     if g:NERDIsOpen == 0
         NERDTreeToggle | NERDTreeRefreshRoot
-        let g:NERDIsOpen = 1
+        g:NERDIsOpen = 1
     else
         NERDTreeToggle
-        let g:NERDIsOpen = 0
+        g:NERDIsOpen = 0
     endif
 
-endfunction
+enddef
 
-function! functions#TabSpaces()
+def functions#TabSpaces()
 
     if g:TabSpaces == 4
         set tabstop=2 | set shiftwidth=2
-        let g:TabSpaces = 2
+        g:TabSpaces = 2
         tmenu TouchBar.Settings.Tab Set Tab 4
     else
         set tabstop=4 | set shiftwidth=4
-        let g:TabSpaces = 4 
+        g:TabSpaces = 4 
         tmenu TouchBar.Settings.Tab Set Tab 2
     endif
-endfunction
+enddef
 
-function! functions#UpdateVerde()
+def functions#UpdateVerde()
     PlugUpdate
     CocUpdate
     PlugClean
-endfunction
+enddef
 
-function! functions#MinifyOrUnminify()
-    let l:line = line('$')
-    if l:line == 1
-        call Unminify()
+def functions#MinifyOrUnminify()
+    const line = line('$')
+    if line == 1
+        silent Unminify()
     else
-        call Minify()
+        silent Minify()
     endif
-endfunction
+enddef
 
-function! Minify()
-    let l:filename = expand('%:p:r')
-    let l:file = expand('%:p')
-    let l:extension = expand('%:e')
+def Minify()
+    const filename = expand('%:p:r')
+    const file = expand('%:p')
+    const extension = expand('%:e')
 
-    if  l:extension == 'css' || l:extension == 'js'
-        silent exec '!~/.vim/extensions/node_modules/minify/bin/minify.js' l:file ' > ' l:filename.'.min.'.l:extension  
-    elseif l:extension == 'html' || l:extension == 'htm'
-        silent exec '!~/.vim/extensions/node_modules/minify/bin/minify.js' l:file ' > ' l:filename.'.min.'.l:extension
-        silent exec '!mv ' l:filename.'.min.',l:extension ' ' l:file
+    if  extension == 'css' || extension == 'js'
+        silent exec '!~/.vim/extensions/node_modules/minify/bin/minify.js' file ' > ' filename .. '.min.' .. extension  
+    elseif extension == 'html' || extension == 'htm'
+        silent exec '!~/.vim/extensions/node_modules/minify/bin/minify.js' file ' > ' filename .. '.min.' .. extension
+        silent exec '!mv ' filename .. '.min.' .. extension ' ' file
     else
         echo "You can only minify html, css or js"
     endif
-endfunction
+enddef
 
-function! Unminify()
-    let l:filename = expand('%:p:r')
-    let l:extension = expand('%:e')
-    let l:file = expand('%:p')
-    if l:extension == 'js'
-        silent exec '!~/.vim/extensions/node_modules/js-beautify/js/bin/js-beautify.js' l:file ' > ' l:filename.'.umin.'.l:extension
-    elseif l:extension == 'html' || l:extension =='htm'
-        silent exec '!~/.vim/extensions/node_modules/js-beautify/js/bin/html-beautify.js' l:file ' > ' l:filename.'.umin.'.l:extension
-    elseif l:extension == 'css'
-        silent exec '!~/.vim/extensions/node_modules/js-beautify/js/bin/css-beautify.js' l:file ' > ' l:filename.'.umin.'.l:extension
+def Unminify()
+    const filename = expand('%:p:r')
+    const extension = expand('%:e')
+    const file = expand('%:p')
+    if extension == 'js'
+        silent exec '!~/.vim/extensions/node_modules/js-beautify/js/bin/js-beautify.js' file ' > ' filename .. '.umin.' .. extension
+    elseif extension == 'html' || extension == 'htm'
+        silent exec '!~/.vim/extensions/node_modules/js-beautify/js/bin/html-beautify.js' file ' > ' filename .. '.umin.' .. extension
+    elseif extension == 'css'
+        silent exec '!~/.vim/extensions/node_modules/js-beautify/js/bin/css-beautify.js' file ' > ' filename .. '.umin.' .. extension
     else
         echo "Only html, js or css can be unminified"
     endif
-    silent exec '!mv' l:filename.'.umin.'.l:extension ' ' l:file
-endfunction
+    silent exec '!mv' filename .. '.umin.' .. extension ' ' file
+enddef
+defcompile

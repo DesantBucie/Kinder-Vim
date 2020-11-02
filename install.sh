@@ -13,7 +13,7 @@ BSDsInsert() {
     "npm.binPath": "'"$NPM"'"' .vim/coc-settings.json
     #NPM
     sed -i '' '54i\
-    let g:coc_node_path = "'"$NODE"'"' .vimrc
+    g:coc_node_path = "'"$NODE"'"' .vimrc
 
     if [ $PLATFORM == "Darwin" ] &&\
     [ $ARE_CTAGS_BSD == "/usr/bin/ctags" ]; 
@@ -21,7 +21,7 @@ BSDsInsert() {
         echo "BSD Ctags are not supported, you need to install universal ctags from Brew, macports or nix"
     else
         sed -i '' '56i\
-        let g:tagbar_ctags_bin = "'"$ARE_CTAGS_BSD"'"' .vimrc
+        g:tagbar_ctags_bin = "'"$ARE_CTAGS_BSD"'"' .vimrc
     fi
     NixsInstall
 }
@@ -29,7 +29,7 @@ LinuxInsert() {
     #coc-settings
     sed -i '4 i "npm.binPath": "'"$NPM"'"' .vim/coc-settings.json
     #NPM
-    sed -i '54 i let g:coc_node_path = "'"$NODE"'"' .vimrc
+    sed -i '54 i g:coc_node_path = "'"$NODE"'"' .vimrc
     NixsInstall
 }
 WindowsInsert() {
@@ -37,7 +37,7 @@ WindowsInsert() {
     #coc-settings
     sed -i '4 i "npm.binPath": "'"$NPM_WIN"'"' .vim/coc-settings.json
     #NPM
-    sed -i '54 i let g:coc_node_path = "'"$NODE_WIN"'"' .vimrc
+    sed -i '54 i g:coc_node_path = "'"$NODE_WIN"'"' .vimrc
     WindowsInstall
 }
 
