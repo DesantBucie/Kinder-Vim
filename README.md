@@ -4,23 +4,26 @@ Macvim and vim configuration to be easy to install and use.
 
 ![Vim.gif](./.github/vim.gif)
 
-![Vim.gif](./.github/touchbar.jpg)
-
-TODO: Unminify and minify code, mini config to use on servers.
+TODO: Think about Integrating Serve 
 
 ## Before we start
 
-I'm a total noob in vim script so I use the simplest methods possible if you see
-that something can be improved, just let me know.
+See mistake or sh$tty code? Tell me. Just tell me and i'll fix it.
+
+This is built for touchbar mac, but works fine on normal pc, just make your own bindings.
 
 ## What's the point
 
-I'll probably need this, so maybe someone will find it easy to install and use
-(not on Windows yet:/ ).
+I want it to be *easy* and *useful*.
+
+It integrates minifying and unminifying code from Vim, you just need to call one function,
+and it detects automaticaly if code is going to be minified or unminified.
+
+You can also open pdf from Vim, or any other file with just one press on touchbar.
 
 ## Advices
 
-Do not use esc, especially on touchbar macbooks 2016-2019, map esc to caps lock.
+Do not use esc, especially on touchbar macbooks 2016-20**, map esc to caps lock.
 
 System preferences => keyboard => modifier keys (bottom right)
 
