@@ -2,32 +2,16 @@
 
 Macvim and vim configuration to be easy to install and use.
 
-![Vim.gif](./.github/vim.gif)
-
-![Vim.gif](./.github/touchbar.jpg)
-
-TODO: Unminify and minify code, mini config to use on servers.
-
 ## Before we start
 
-I'm a total noob in vim script so I use the simplest methods possible if you see
-that something can be improved, just let me know.
+This is testing branch
 
 ## What's the point
 
-I'll probably need this, so maybe someone will find it easy to install and use
-(not on Windows yet:/ ).
-
-## Advices
-
-Do not use esc, especially on touchbar macbooks 2016-2019, map esc to caps lock.
-
-System preferences => keyboard => modifier keys (bottom right)
-
-![Map caps lock to esc](./.github/esc.gif)
+Make it faster, safer and maybe more reliable in the future with vim9script.
 
 ## Instalation
-
+You will find Vim9 release in releases
 [Go to wiki](https://github.com/DesantBucie/Kinder-Vim/wiki)
 
 ## Uninstall
