@@ -2,7 +2,7 @@
 
 Macvim and vim configuration to be easy to install and use.
 
-![Vim.gif](./.github/vim.gif)
+[![Youtube Video](https://img.youtube.com/vi/EEb9o1yYyTI/0.jpg)](https://www.youtube.com/watch?v=EEb9o1yYyTI)
 
 TODO: Think about Integrating Serve 
 
