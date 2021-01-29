@@ -8,7 +8,8 @@ Macvim and vim configuration to be easy to install and use.
 
 
 
-## CHECK VIM9 BRANCH THIS WILL PROBABLY BE NOT DEVELOPED ANY MORE
+## ~~CHECK~~ VIM9 BRANCH~~, THIS~~ WILL PROBABLY BE NOT DEVELOPED ANY MORE
+
 ## Before we start
 
 See mistake or sh$tty code? Tell me. Just tell me and i'll fix it.
