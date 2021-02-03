@@ -34,11 +34,11 @@ System preferences => keyboard => modifier keys (bottom right)
 
 ## Instalation
 
-[Go to wiki](https://github.com/DesantBucie/Kinder-Vim/wiki)
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/DesantBucie/Verde/master/scripts/install.sh)"`
 
 ## Uninstall
 
-You can run script, or simply delete ~/.vim ~/.vimrc and ~/.config/coc
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/DesantBucie/Verde/master/scripts/uninstall.sh)"`
 
 ![Uninstall.gif](./.github/uninstall.gif)
 
