@@ -43,7 +43,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set backspace=indent,eol,start
-
+set clipboard=unnamed
 "#Allows you to see .files
 let g:NERDTreeShowHidden = 1  
 "#Position of the nerdTree
