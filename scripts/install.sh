@@ -72,7 +72,7 @@ main() {
     cd ~/Verde
 
 
-    if [ $NPM ] && [ $NODE ]; then
+    if node && npm; then
 
         if [ $PLATFORM == *"BSD" ] ||\
         [ $PLATFORM == "Darwin" ] ||\
@@ -85,7 +85,7 @@ main() {
             Your platform is not supported.
             rm -rf ~/Verde
         fi
-    elif [ -x `where npm` ] && [ -x `where node` ] && [ $PLATFORM == "MINGW"* ];then
+    elif  npm  && node  && [ $PLATFORM == "MINGW"* ];then
         WindowsInsert
     else
         echo "Node or/and Npm not found in your path"
@@ -106,7 +106,7 @@ main() {
 
 
     cd ~/.config/coc/extensions
-    npm install coc-angular coc-bookmark coc-calc coc-clangd coc-cmake coc-css coc-css coc-cssmodules coc-emmet coc-highlight coc-html coc-lists coc-markdownlint coc-omnisharp coc-perl coc-phpls coc-powershell coc-python coc-rls coc-sh coc-stylelintplus coc-snippets coc-sourcekit coc-sql coc-svg coc-todolist coc-tsserver coc-yank coc-json --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+    npm install coc-angular coc-calc coc-clangd coc-cmake coc-css coc-css coc-cssmodules coc-emmet coc-highlight coc-html coc-lists coc-markdownlint coc-omnisharp coc-perl coc-phpls coc-powershell coc-python coc-rls coc-sh coc-stylelintplus coc-snippets coc-sourcekit coc-sql coc-svg coc-todolist coc-tsserver coc-yank coc-json --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
     cd ~/.vim/extensions
 
     npm install minify js-beautify  --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
