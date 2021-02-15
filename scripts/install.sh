@@ -2,8 +2,8 @@ VIMRC_WIN=~/_vimrc
 VIMRC=~/.vimrc
 VIM=~/.vim
 #Which is almost always installed, but won't work on windows' git-bash`
-NODE=`which node`
-NPM=`which npm`
+NODE=`command -v node`
+NPM=`command -v npm`
 PLATFORM=`uname`
 ARE_CTAGS_BSD=`which ctags`
 
@@ -16,7 +16,7 @@ BSDsInsert() {
     let g:coc_node_path = "'"$NODE"'"' .vimrc
 
     if [ $PLATFORM == "Darwin" ] &&\
-    [ $ARE_CTAGS_BSD == "/usr/bin/ctags" ]; 
+    [ $ARE_CTAGS_BSD == "/usr/bin/ctags" ] 
     then
         echo "BSD Ctags are not supported, you need to install universal ctags from Brew, macports or nix"
     else
@@ -35,9 +35,9 @@ LinuxInsert() {
 WindowsInsert() {
     sed -i '1 i let &runtimepath.=",$HOME/.vim"' .vimrc
     #coc-settings
-    sed -i '4 i "npm.binPath": "'"$NPM_WIN"'"' .vim/coc-settings.json
+    sed -i '4 i "npm.binPath": "'"$NPM"'"' .vim/coc-settings.json
     #NPM
-    sed -i '54 i let g:coc_node_path = "'"$NODE_WIN"'"' .vimrc
+    sed -i '54 i let g:coc_node_path = "'"$NODE"'"' .vimrc
     WindowsInstall
 }
 
@@ -72,20 +72,23 @@ main() {
     cd ~/Verde
 
 
-    if node && npm; then
+    if type node && type npm
+    then
 
         if [ $PLATFORM == *"BSD" ] ||\
         [ $PLATFORM == "Darwin" ] ||\
-        [ $PLATFORM == "DragonFly" ]; 
+        [ $PLATFORM == "DragonFly" ] 
         then
             BSDsInsert
-        elif [ $PLATFORM == "Linux" ];then
+        elif [ $PLATFORM == "Linux" ]
+        then
             LinuxInsert
         else 
             Your platform is not supported.
             rm -rf ~/Verde
         fi
-    elif  npm  && node  && [ $PLATFORM == "MINGW"* ];then
+    elif $NPM  && $NODE  && [ $PLATFORM == "MINGW"* ]
+    then
         WindowsInsert
     else
         echo "Node or/and Npm not found in your path"
@@ -93,7 +96,8 @@ main() {
         exit
     fi
 
-    if [ -d "$VIM" ]; then
+    if [ -d "$VIM" ]
+    then
         mv ~/.vim ~/.vim_backup
         echo ".vim found, moving to .vim_backup"
     fi
