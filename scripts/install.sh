@@ -56,7 +56,7 @@ main() {
         git clone https://github.com/DesantBucie/Verde
         cd ~/Verde
 
-        if {type node && type npm;}
+        if type node && type npm
         then
 
                 if [ $PLATFORM == *"BSD" ] ||\
