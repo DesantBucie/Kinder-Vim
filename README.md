@@ -1,5 +1,7 @@
 # Verde
 
+# At this point this is no longer maintained, because I do not use it. I will be bringing lite version of this soon. But Feel free to install it, most things should work
+
 Macvim and vim configuration to be easy to install and use.
 
 [![Youtube Video](https://img.youtube.com/vi/EEb9o1yYyTI/0.jpg)](https://www.youtube.com/watch?v=EEb9o1yYyTI)
