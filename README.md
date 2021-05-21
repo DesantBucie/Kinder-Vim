@@ -1,6 +1,6 @@
 # Verde
 
-# At this point this is no longer maintained, because I do not use it. You can either use [exrc for vi and nvi](https://github.com/DesantBucie/exrc) or [easy-vim for vim and neovim](https://github.com/DesantBucie/easy_vim)
+# At this point this is no longer maintained, because I do not use it. You can either use [exrc for vi and nvi](https://github.com/DesantBucie/exrc) or [easy-vim for vim and neovim](https://github.com/DesantBucie/easy-vim)
 
 Macvim and vim configuration to be easy to install and use.
 
